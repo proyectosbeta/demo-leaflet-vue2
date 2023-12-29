@@ -8,8 +8,8 @@ This demo tries to display a map using leaflet with Vue2.
 - NodeJS v14.21.3
 - Yarn 1.22.11
 - Leaflet 1.9.6
-- Layer MapBox with Key
-- OpenStreetMap
+- [Layer Mapbox with Key](https://www.mapbox.com/)
+- [OpenStreetMap](https://www.openstreetmap.org)
 - GeoJSON (India States)
 
 ## Project setup
