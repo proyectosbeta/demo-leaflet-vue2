@@ -3,8 +3,9 @@
 </template>
 
 <script>
-import "leaflet/dist/leaflet.css";
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import L from "leaflet";
+import "leaflet-routing-machine";
 import states from "@/assets/India.json";
 
 export default {
@@ -23,6 +24,7 @@ export default {
       this.mapDiv = L.map("mapContainer").setView(this.center, this.zoom);
       this.addTileLayer();
       this.addGeoJSONLayer();
+      this.addRouting();
     },
 
     addTileLayer() {
@@ -43,6 +45,14 @@ export default {
       this.geojson = L.geoJSON(states, {
         onEachFeature: this.onEachFeature,
         style: this.mapstyle(),
+      }).addTo(this.mapDiv);
+    },
+
+    addRouting() {
+      L.Routing.control({
+        waypoints: [L.latLng(28.238, 83.9956), L.latLng(38.238, 93.9956)],
+        routeWhileDragging: true,
+        language: "de",
       }).addTo(this.mapDiv);
     },
 
